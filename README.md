@@ -1,6 +1,8 @@
 # PHP Utilities by ChatGPT
 
 Bienvenue dans ce repository GitHub qui contient diverses fonctions, fichiers, et utilitaires PHP générés uniquement par ChatGPT. Ce projet est une collection de scripts et de services PHP créés pour aider les développeurs avec différentes tâches courantes.
+### ATTENTION
+Les codes n'ont pas été testés, ils ont été générés automatiquement via ChatGPT.
 
 ## Aperçu
 
