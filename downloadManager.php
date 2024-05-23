@@ -33,6 +33,21 @@ function handleFileUpload($file, $destination, $allowedTypes = ['image/jpeg', 'i
     }
 }
 
+function downloadFile($filePath)
+{
+    if (file_exists($filePath)) {
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="' . basename($filePath) . '"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($filePath));
+        readfile($filePath);
+        exit();
+    }
+}
+
 // Exemple d'utilisation
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
     $uploadResult = handleFileUpload($_FILES['file'], __DIR__ . '/uploads');
@@ -42,3 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
         echo 'Échec du téléchargement du fichier.';
     }
 }
+
+// Exemple d'utilisation
+downloadFile('path/to/your/file.txt');
